@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TableForge — Table Builder: Create Tables & Export Markdown, HTML or CSV</title>
+<meta name="description" content="Free online table builder. Build a table visually, sort rows, set alignment, paste CSV to import — then export clean Markdown, HTML or CSV in one click.">
+<link rel="canonical" href="https://tableforge.fixoraa.tech/">
+<meta property="og:title" content="TableForge — Table Builder: Create Tables & Export Markdown, HTML or CSV">
+<meta property="og:description" content="Free online table builder. Build a table visually, sort rows, set alignment, paste CSV to import — then export clean Markdown, HTML or CSV in one click.">
+<meta property="og:url" content="https://tableforge.fixoraa.tech/">
+<meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--pri:#7C2D12;--acc:#0891B2;--bgc:#FFF7ED}
+body{background:var(--bgc);font-family:'Segoe UI',system-ui,sans-serif}
+.pri{background:var(--pri)} .prit{color:var(--pri)} .acct{color:var(--acc)}
+.btn{background:var(--pri);color:#fff;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+.btn:hover{opacity:.9} .btn2{background:var(--acc);color:#111;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+input,select,textarea{border:1.5px solid #cbd5e1;border-radius:.55rem;padding:.55rem .7rem;width:100%;background:#fff;color:#0f172a}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pri);border-color:transparent}
+label{font-size:.83rem;font-weight:600;display:block;margin-bottom:.3rem}
+.card{background:#fff;border-radius:1rem;box-shadow:0 8px 30px rgba(15,23,42,.08);padding:1.4rem}
+article p{margin:.7rem 0;line-height:1.75;color:#334155}
+article h2{font-size:1.45rem;font-weight:800;margin:1.6rem 0 .4rem;color:#0f172a}
+.faq{background:#fff;border-radius:.7rem;padding:.9rem 1.1rem;margin:.55rem 0;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+.faq summary{font-weight:700;cursor:pointer}
+table.dt{width:100%;border-collapse:collapse} table.dt th,table.dt td{border:1px solid #e2e8f0;padding:.45rem .6rem;text-align:left;font-size:.9rem}
+table.dt th{background:#f1f5f9}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TableForge", "url": "https://tableforge.fixoraa.tech/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Free online table builder. Build a table visually, sort rows, set alignment, paste CSV to import \u2014 then export clean Markdown, HTML or CSV in one click."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I turn a spreadsheet table into Markdown?", "acceptedAnswer": {"@type": "Answer", "text": "Export or save the sheet as CSV, paste it into the Import box, click Import, verify the grid, then choose Markdown export. The generated syntax renders correctly on GitHub, GitLab, Notion and static sites."}}, {"@type": "Question", "name": "Does the first row become the header?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 the grid's first row is the header in every export: the Markdown separator row is generated under it, and HTML export places it in a thead with th cells for accessibility."}}, {"@type": "Question", "name": "How is column alignment exported?", "acceptedAnswer": {"@type": "Answer", "text": "Left, center or right is set once and translated per format: :--- / :---: / ---: in Markdown, text-align styles in HTML. CSV has no alignment concept, so values export plainly."}}, {"@type": "Question", "name": "Can cells contain commas or quotes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The CSV export quotes and escapes such cells using the standard rules (wrap in quotes, double internal quotes), and Markdown/HTML exports handle them normally."}}, {"@type": "Question", "name": "Is there a size limit on tables?", "acceptedAnswer": {"@type": "Answer", "text": "No imposed limit \u2014 the grid runs in your browser. Very large tables (hundreds of rows) get unwieldy to edit visually; for those, keep the source in CSV and use the tool for the publishable subset."}}, {"@type": "Question", "name": "Is my table data uploaded or saved?", "acceptedAnswer": {"@type": "Answer", "text": "Neither. Everything happens in your tab and nothing is stored when you leave. Export your formats before closing the page \u2014 that ephemerality is what keeps your data private."}}]}</script>
+</head>
+<body id="top">
+<header class="sticky top-0 z-40 shadow-md" style="background:#431407">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="text-xl font-extrabold tracking-tight" style="color:#FFF7ED">▦ TableForge</a>
+    <nav class="flex gap-5 text-sm font-semibold" style="color:#FFF7ED">
+      <a href="#top" class="hover:underline">Home</a>
+      <a href="https://fixoraa.tech" class="hover:underline">More Tools</a>
+    </nav>
+  </div>
+</header>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<main class="mx-auto max-w-6xl px-4 sm:px-6 py-8">
+  <div class="text-center mb-6">
+    <h1 class="text-3xl sm:text-4xl font-extrabold" style="color:#0f172a">Table Builder — Markdown, HTML & CSV Export</h1>
+    <p class="mt-2 text-slate-600 max-w-2xl mx-auto">Build your table in the grid — add rows and columns, type, sort, align — then export it as Markdown for your docs, HTML for your site, or CSV for a spreadsheet. Paste CSV to import an existing table just as fast.</p>
+    <span class="inline-block mt-3 px-3 py-1 rounded-full text-xs font-bold text-white pri">✓ Unlimited Free Usage — No Signup, No Watermark</span>
+  </div>
+  <div class="card">
+  <div class="flex gap-2 flex-wrap mb-3">
+    <button class="btn" onclick="addRow()">+ Row</button>
+    <button class="btn" onclick="addCol()">+ Column</button>
+    <button class="btn" onclick="delRow()">− Row</button>
+    <button class="btn" onclick="delCol()">− Column</button>
+    <button class="btn2" onclick="sortCol()">⇅ Sort by column 1</button>
+    <select id="align" onchange="render()" class="w-auto"><option value="l">Align: left</option><option value="c">center</option><option value="r">right</option></select>
+  </div>
+  <div class="overflow-x-auto"><table class="dt" id="grid"></table></div>
+  <div class="grid md:grid-cols-2 gap-4 mt-4">
+    <div><label>Import — paste CSV here</label><textarea id="imp" rows="4" placeholder="Name,Age,City&#10;Asha,29,Pune&#10;Ben,34,Leeds"></textarea><button class="btn mt-2" onclick="doImport()">Import CSV into grid</button></div>
+    <div><label>Export</label><div class="flex gap-2 mb-2"><button class="btn" onclick="exp('md')">Markdown</button><button class="btn" onclick="exp('html')">HTML</button><button class="btn" onclick="exp('csv')">CSV</button><button class="btn2" onclick="copyExp()">Copy output</button></div><textarea id="out" rows="6" readonly></textarea></div>
+  </div>
+ </div>
+</main>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+    </div>
+  </div>
+</div>
+<section class="mx-auto max-w-4xl px-4 sm:px-6 pb-6">
+  <article>
+  <h2>Tables are everywhere; good table tools are not</h2>
+<p>Every README, report, wiki page, pricing sheet and data appendix eventually needs a table — and building one by hand in Markdown or HTML is a small misery of pipes, dashes and mismatched columns that breaks the moment a cell contains the delimiter itself. TableForge replaces that fiddling with a grid you can see: type in the cells, grow or shrink the table with buttons, sort a column, set alignment once, and export the format your destination actually wants. The table you see is the table you ship.</p>
+<p>The builder is deliberately bilingual in both directions. Export covers the three formats tables live in — Markdown for documentation and GitHub, HTML for websites and emails, CSV for spreadsheets — and import runs the busiest route in reverse: paste CSV from Excel, Sheets or a database export and it becomes an editable grid, ready to re-export as a perfectly aligned Markdown table for your docs. That round trip, spreadsheet to documentation, is the journey real tables take most often, and it is the one this tool is optimised for.</p>
+<h2>Markdown tables, done properly</h2>
+<p>Markdown's table syntax is simple until it is not: a header row, a separator row of dashes that secretly encodes alignment — :--- left, ---: right, :---: centred — and body rows whose pipes must be escaped if a cell dares to contain one. TableForge generates the separator from the alignment control, pads nothing it should not, and produces source that renders identically on GitHub, GitLab, Notion, Obsidian and every static-site generator worth using. Paste it into a README and the preview is correct the first time — which, if you have ever hand-aligned a six-column table in a monospace editor at midnight, you will recognise as the entire point.</p>
+<p>Because the grid treats the first row as the header, what you bold in your mind stays the header in every export. Rename a column by typing over it; the change flows into Markdown, HTML and CSV simultaneously when you re-export. One source of truth, three destinations, zero manual synchronisation.</p>
+<h2>HTML tables with semantics intact</h2>
+<p>The HTML export is not a screenshot of the grid — it is real, semantic markup: a table element with thead and tbody, th cells for the header carrying the alignment you chose, and cell contents properly escaped so a stray '<' in your data cannot break a page or smuggle markup. That matters beyond tidiness: screen readers navigate by those header cells, search engines extract data from them, and future maintainers can restyle a semantic table with CSS instead of excavating divs. Accessibility is not an add-on here; it is the default output of building the export correctly.</p>
+<p>Styling hooks are intentionally minimal — alignment is inlined so the table survives being pasted into emails, CMS editors and README-to-web pipelines that strip style blocks, while everything visual beyond alignment is left to your site's own table CSS. The export respects the boundary between structure (its job) and presentation (yours).</p>
+<h2>CSV: the format that refuses to die, handled carefully</h2>
+<p>CSV looks trivial and is quietly treacherous: cells containing commas, quotes or line breaks must be quoted, and quotes inside quoted cells must be doubled — rules every spreadsheet honours and many hand-rolled exports break. TableForge's CSV writer applies the standard quoting rules automatically, and its importer handles the everyday case of clean exports from Excel and Sheets. If your data begins life in a spreadsheet, the fastest path to a publishable table is: export CSV there, paste it here, verify the grid, export Markdown or HTML. Thirty seconds, no retyping, no transcription errors.</p>
+<p>Keep the grid itself as your working copy while a document is in flux. Version the exported text with the document it belongs to — Markdown and HTML diff beautifully in Git, which is one more reason to generate them from the grid rather than maintaining them by hand in three places.</p>
+<h2>Sorting, alignment and other small dignities</h2>
+<p>The sort button orders body rows by the first column with numeric awareness, so 9 sorts before 10 — the detail every quick sort forgets and every reader notices. Use it for rosters, price lists, leaderboards and any table a reader scans alphabetically. Alignment is a readability decision, not decoration: left for text, right for numbers being compared by magnitude, centred for short status-style values. Set it once per export; the generators translate it faithfully into each format's own idiom — colons in Markdown, text-align in HTML, and (honestly) ignored in CSV, which has no concept of alignment at all.</p>
+<p>Resist giant tables in prose documents regardless of tooling. Past roughly seven columns or thirty rows, readers stop reading and start searching — at that point a downloadable CSV beside a summarised in-page table serves them better than one heroic grid. TableForge happily builds either; judgement remains, as it should, yours.</p>
+<h2>Built for the copy-paste reality of work</h2>
+<p>No account, no upload, no server: the grid lives in your browser tab, and your data — which might be an unreleased price list or an internal roster — never travels anywhere. Close the tab and it is gone, so export before you close; that ephemerality is the privacy model, stated plainly. For documents still being drafted, keep the exported Markdown in the draft itself and rebuild from it any time via CSV. The tool's job is to make table mechanics invisible so the only thing you spend thought on is whether the numbers deserve publishing. Forge the table; keep the thinking for the data.</p>
+<h2>From grid to published page: a tidy workflow</h2>
+<p>Draft the table here while the data is still moving — sortingexperiments and column experiments are free in the grid and painful in finished markup. When the numbers settle, export Markdown for anything that lives in a repository or docs system, HTML for anything that lives on a web page, and keep the CSV beside both as the machine-readable source. Name the exports after the table's subject, not its format, and future-you will find them by searching for the topic.</p>
+<p>Resist decorating inside the grid: alignment is the only presentational decision the exports carry, and that restraint is what keeps a Markdown table pasted into a wiki, an HTML table pasted into a CMS, and a CSV opened in a spreadsheet all telling the same story. Structure travels; decoration stays home. That is the forge's whole philosophy, in one sentence.</p>
+<h2>Tables that survive being quoted</h2>
+<p>A table's life rarely ends in its first document: rows get lifted into slides, answers and other people's reports, usually without the surrounding prose. Build for that afterlife — headers that make sense alone, units inside the header rather than a footnote ('Price (₹)'), and no cell whose meaning depends on a colour mentioned three paragraphs earlier. The exports keep that discipline portable: a quoted Markdown table still carries its headers, a quoted HTML table still names its columns to screen readers. Ten seconds of header care at the forge is the difference between data that travels intact and data that arrives as a riddle with numbers.</p>
+<h2>A note on honesty in small tables</h2>
+<p>Small tables invite a quiet dishonesty: rounding every figure until the totals stop agreeing, or dropping the inconvenient row. Resist both at the forge — carry one more decimal than the reader needs, keep totals computed from the unrounded values, and let awkward rows stand with a note rather than vanish. Readers forgive an untidy truth for decades and a tidy fudge never. The grid makes honesty easy: what you type is what exports, in all three formats, identically. Keep it that way and your tables will be quoted with confidence long after flashier documents are doubted.</p>
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq"><summary>How do I turn a spreadsheet table into Markdown?</summary><p>Export or save the sheet as CSV, paste it into the Import box, click Import, verify the grid, then choose Markdown export. The generated syntax renders correctly on GitHub, GitLab, Notion and static sites.</p></details>
+<details class="faq"><summary>Does the first row become the header?</summary><p>Yes — the grid's first row is the header in every export: the Markdown separator row is generated under it, and HTML export places it in a thead with th cells for accessibility.</p></details>
+<details class="faq"><summary>How is column alignment exported?</summary><p>Left, center or right is set once and translated per format: :--- / :---: / ---: in Markdown, text-align styles in HTML. CSV has no alignment concept, so values export plainly.</p></details>
+<details class="faq"><summary>Can cells contain commas or quotes?</summary><p>Yes. The CSV export quotes and escapes such cells using the standard rules (wrap in quotes, double internal quotes), and Markdown/HTML exports handle them normally.</p></details>
+<details class="faq"><summary>Is there a size limit on tables?</summary><p>No imposed limit — the grid runs in your browser. Very large tables (hundreds of rows) get unwieldy to edit visually; for those, keep the source in CSV and use the tool for the publishable subset.</p></details>
+<details class="faq"><summary>Is my table data uploaded or saved?</summary><p>Neither. Everything happens in your tab and nothing is stored when you leave. Export your formats before closing the page — that ephemerality is what keeps your data private.</p></details>
+  </article>
+</section>
+<footer class="mt-6 py-8" style="background:#431407;color:#FFF7ED">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center text-sm">
+    <p class="font-bold text-base">TableForge</p>
+    <p class="opacity-80 mt-1">Free online table builder. Build a table visually, sort rows, set alignment, paste CSV to import — then export clean Markdown, HTML or CSV in one click.</p>
+    <p class="mt-2"><a href="#top" class="underline">Home</a> · <a href="https://fixoraa.tech" class="underline">More Tools</a></p>
+    <p class="fx-credit" style="text-align:center;font-size:12.5px;opacity:.62;margin:10px auto 2px;letter-spacing:.01em">Made by <a href="https://fixoraa.tech" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px">Fixoraa</a></p>
+  </div>
+</footer>
+<script>
+
+var DATA=[['Name','Role','City'],['Asha','Designer','Pune'],['Ben','Engineer','Leeds'],['Cleo','Writer','Austin']];
+function render(){
+  document.getElementById('grid').innerHTML=DATA.map(function(row,ri){return '<tr>'+row.map(function(c,ci){var tag=ri===0?'th':'td';return '<'+tag+'><input style="border:none;padding:.2rem;width:100%;min-width:90px;font-weight:'+(ri===0?'700':'400')+'" value="'+String(c).replace(/"/g,'&quot;')+'" oninput="DATA['+ri+']['+ci+']=this.value"></'+tag+'>';}).join('')+'</tr>';}).join('');
+}
+function addRow(){DATA.push(DATA[0].map(function(){return '';}));render();}
+function addCol(){DATA.forEach(function(r){r.push('');});render();}
+function delRow(){if(DATA.length>1)DATA.pop();render();}
+function delCol(){if(DATA[0].length>1)DATA.forEach(function(r){r.pop();});render();}
+function sortCol(){var h=DATA[0],b=DATA.slice(1);b.sort(function(a,b2){return String(a[0]).localeCompare(String(b2[0]),undefined,{numeric:true});});DATA=[h].concat(b);render();}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function toMarkdown(){
+  var al=document.getElementById('align').value; var sep=DATA[0].map(function(){return al==='c'?':---:':al==='r'?'---:':'---';});
+  return [ '| '+DATA[0].join(' | ')+' |', '| '+sep.join(' | ')+' |' ].concat(DATA.slice(1).map(function(r){return '| '+r.join(' | ')+' |';})).join('\n');
+}
+function toHTML(){
+  var al={l:'left',c:'center',r:'right'}[document.getElementById('align').value];
+  var s='<table>\n  <thead>\n    <tr>'+DATA[0].map(function(c){return '<th style="text-align:'+al+'">'+esc(c)+'</th>';}).join('')+'</tr>\n  </thead>\n  <tbody>';
+  s+=DATA.slice(1).map(function(r){return '\n    <tr>'+r.map(function(c){return '<td style="text-align:'+al+'">'+esc(c)+'</td>';}).join('')+'</tr>';}).join('');
+  return s+'\n  </tbody>\n</table>';
+}
+function toCSV(){return DATA.map(function(r){return r.map(function(c){return /[",\n]/.test(String(c))?'"'+String(c).replace(/"/g,'""')+'"':c;}).join(',');}).join('\n');}
+function exp(k){document.getElementById('out').value= k==='md'?toMarkdown():k==='html'?toHTML():toCSV();}
+function copyExp(){var o=document.getElementById('out');o.select();document.execCommand('copy');if(navigator.clipboard)navigator.clipboard.writeText(o.value);}
+function doImport(){
+  var t=document.getElementById('imp').value.trim(); if(!t)return;
+  DATA=t.split(/\n/).map(function(line){return line.split(',').map(function(x){return x.trim().replace(/^"|"$/g,'');});});
+  render();
+}
+render(); exp('md');
+
+</script>
+</body>
+</html>
